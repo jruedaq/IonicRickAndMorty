@@ -1,0 +1,24 @@
+.status_icon {
+
+  &.Alive:before {
+    background-color: #50982AFF;
+  }
+
+  &.unknown:before {
+    background-color: #4F5559FF;
+  }
+
+  &.Dead:before {
+    background-color: #C9404D;
+  }
+
+  &:before {
+    content: ' ';
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    margin-right: 10px;
+    border: 1px solid #000;
+    border-radius: 7px;
+  }
+}

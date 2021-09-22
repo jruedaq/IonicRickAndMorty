@@ -12,7 +12,7 @@ export class ApiService {
   constructor(private http: HttpClient) {
   }
 
-  public getCharacters(page: string = "1"): Observable<any> {
+  public getCharacters(page: number = 1): Observable<any> {
     return this.httpGet('/character?page=' + page);
   }
 

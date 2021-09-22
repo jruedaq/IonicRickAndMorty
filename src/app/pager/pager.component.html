@@ -1,0 +1,9 @@
+<p>pages {{actualPage}} of {{totalPages}}</p>
+<a *ngIf="actualPage - 1 <= totalPages" routerLink="/{{sourceUrl}}/{{actualPage - 1}}">Previous page</a>
+<a *ngIf="actualPage + 1 <= totalPages" routerLink="/{{sourceUrl}}/{{actualPage + 1}}">{{actualPage + 1}}</a>
+<a *ngIf="actualPage + 2 <= totalPages" routerLink="/{{sourceUrl}}/{{actualPage + 2}}">{{actualPage + 2}}</a>
+<a *ngIf="actualPage + 3 <= totalPages" routerLink="/{{sourceUrl}}/{{actualPage + 3}}">{{actualPage + 3}}</a>
+<a *ngIf="actualPage + 4 <= totalPages" routerLink="/{{sourceUrl}}/{{actualPage + 4}}">{{actualPage + 4}}</a>
+<a *ngIf="actualPage + 5 <= totalPages" routerLink="/{{sourceUrl}}/{{actualPage + 5}}">{{actualPage + 5}}</a>
+<a *ngIf="actualPage + 6 <= totalPages" routerLink="/{{sourceUrl}}/{{actualPage + 6}}">{{actualPage + 6}}</a>
+<a *ngIf="actualPage + 1 <= totalPages" routerLink="/{{sourceUrl}}/{{actualPage + 1}}">Next page</a>

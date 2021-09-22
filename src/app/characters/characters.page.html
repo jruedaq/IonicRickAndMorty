@@ -15,6 +15,12 @@
   </ion-header>
 
   <div id="container">
+    <app-pager
+      [totalPages]="totalPages"
+      [actualPage]="actualPage"
+      sourceUrl="characters"
+    ></app-pager>
+
     <div *ngIf="elements.length > 0">
       <app-character-card
         *ngFor="let x of elements"
@@ -23,5 +29,11 @@
     </div>
 
     <app-loading-component *ngIf="elements.length === 0"></app-loading-component>
+
+    <app-pager
+      [totalPages]="totalPages"
+      [actualPage]="actualPage"
+      sourceUrl="characters"
+    ></app-pager>
   </div>
 </ion-content>

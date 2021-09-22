@@ -11,14 +11,17 @@ import {Character} from "../objects/character";
 export class CharactersPage implements OnInit {
 
   elements = [];
+  actualPage: number;
+  totalPages: number;
 
   constructor(private api: ApiService, private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit() {
-    const page = this.activatedRoute.snapshot.paramMap.get('page');
+    this.actualPage = parseInt(this.activatedRoute.snapshot.paramMap.get('page'));
 
-    this.api.getCharacters(page).subscribe(r => {
+    this.api.getCharacters(this.actualPage).subscribe(r => {
+      this.totalPages = r.info.pages;
       r.results.forEach(e => {
         this.elements.push(new Character(e))
       });
