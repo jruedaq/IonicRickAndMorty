@@ -9,8 +9,8 @@ import {Router, RouterEvent} from "@angular/router";
 export class AppComponent {
   public appPages = [
     {title: 'Characters', url: '/characters/1', icon: 'people'},
-    {title: 'Locations', url: '/locations', icon: 'location'},
-    {title: 'Episodes', url: '/episodes', icon: 'tv'},
+    {title: 'Locations', url: '/locations/1', icon: 'location'},
+    {title: 'Episodes', url: '/episodes/1', icon: 'tv'},
   ];
 
   selectedPath = "";

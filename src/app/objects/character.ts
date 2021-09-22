@@ -12,7 +12,6 @@ export class Character {
   private readonly _episodes: string[];
 
   constructor(characterArray: any) {
-    console.log(characterArray)
     this._id = characterArray.id;
     this._name = characterArray.name === "" ? "-" : characterArray.name;
     this._status = characterArray.status === "" ? "-" : characterArray.status;
@@ -22,7 +21,7 @@ export class Character {
     this._origin = characterArray.origin;
     this._location = characterArray.location;
     this._image = characterArray.image === "" ? "-" : characterArray.image;
-    this._episodes = characterArray.episodes;
+    this._episodes = characterArray.episode;
   }
 
 

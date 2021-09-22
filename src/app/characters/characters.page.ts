@@ -10,10 +10,10 @@ import {Character} from "../objects/character";
 })
 export class CharactersPage implements OnInit {
 
-  elements = [];
+  elements: Character[] = [];
   actualPage: number;
   totalPages: number;
-  nCharacters: number;
+  n: number;
 
   constructor(private api: ApiService, private activatedRoute: ActivatedRoute) {
   }
@@ -23,9 +23,9 @@ export class CharactersPage implements OnInit {
 
     this.api.getCharacters(this.actualPage).subscribe(r => {
       this.totalPages = r.info.pages;
-      this.nCharacters = r.info.count;
+      this.n = r.info.count;
       r.results.forEach(e => {
-        this.elements.push(new Character(e))
+        this.elements.push(new Character(e));
       });
     })
   }

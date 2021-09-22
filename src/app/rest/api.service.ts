@@ -20,8 +20,8 @@ export class ApiService {
     return this.httpGet('/character/' + id);
   }
 
-  public getLocations(): Observable<any> {
-    return this.httpGet('/location');
+  public getLocations(page: number = 1): Observable<any> {
+    return this.httpGet('/location?page=' + page);
   }
 
   public getEpisodes(): Observable<any> {

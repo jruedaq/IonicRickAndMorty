@@ -10,11 +10,11 @@ const routes: Routes = [
         loadChildren: () => import('./characters/characters.module').then(m => m.CharactersPageModule)
       },
       {
-        path: 'locations',
+        path: 'locations/:page',
         loadChildren: () => import('./locations/locations.module').then(m => m.LocationsPageModule)
       },
       {
-        path: 'episodes',
+        path: 'episodes/:page',
         loadChildren: () => import('./episodes/episodes.module').then(m => m.EpisodesPageModule)
       },
       {
