@@ -24,8 +24,8 @@ export class ApiService {
     return this.httpGet('/location?page=' + page);
   }
 
-  public getEpisodes(): Observable<any> {
-    return this.httpGet('/episode');
+  public getEpisodes(page: number = 1): Observable<any> {
+    return this.httpGet('/episode?page=' + page);
   }
 
   private httpGet(path: string): Observable<any> {

@@ -7,6 +7,9 @@ import { IonicModule } from '@ionic/angular';
 import { EpisodesPageRoutingModule } from './episodes-routing.module';
 
 import { EpisodesPage } from './episodes.page';
+import {EpisodeCardComponent} from "../episode-card/episode-card.component";
+import {LoadingComponentComponent} from "../loading-component/loading-component.component";
+import {PagerComponent} from "../pager/pager.component";
 
 @NgModule({
   imports: [
@@ -15,6 +18,6 @@ import { EpisodesPage } from './episodes.page';
     IonicModule,
     EpisodesPageRoutingModule
   ],
-  declarations: [EpisodesPage]
+  declarations: [EpisodesPage, EpisodeCardComponent, LoadingComponentComponent, PagerComponent]
 })
 export class EpisodesPageModule {}

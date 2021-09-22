@@ -1,9 +1,40 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>episodes</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Episodes</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Episodes</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
+  <div id="container">
+    <ion-text><h3>{{n}} episodes in total</h3></ion-text>
+    <app-pager
+      [totalPages]="totalPages"
+      [actualPage]="actualPage"
+      sourceUrl="episodes"
+    ></app-pager>
+
+    <div *ngIf="elements.length > 0">
+      <app-episode-card
+        *ngFor="let x of elements"
+        [episode]="x"
+      ></app-episode-card>
+    </div>
+
+    <app-loading-component *ngIf="elements.length === 0"></app-loading-component>
+
+    <app-pager
+      [totalPages]="totalPages"
+      [actualPage]="actualPage"
+      sourceUrl="episodes"
+    ></app-pager>
+  </div>
 </ion-content>
