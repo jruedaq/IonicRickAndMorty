@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {Router, RouterEvent} from "@angular/router";
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -6,13 +8,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public appPages = [
-    { title: 'Inbox', url: '/folder/Inbox', icon: 'mail' },
-    { title: 'Outbox', url: '/folder/Outbox', icon: 'paper-plane' },
-    { title: 'Favorites', url: '/folder/Favorites', icon: 'heart' },
-    { title: 'Archived', url: '/folder/Archived', icon: 'archive' },
-    { title: 'Trash', url: '/folder/Trash', icon: 'trash' },
-    { title: 'Spam', url: '/folder/Spam', icon: 'warning' },
+    {title: 'Characters', url: '/characters/1', icon: 'people'},
+    {title: 'Locations', url: '/locations', icon: 'location'},
+    {title: 'Episodes', url: '/episodes', icon: 'tv'},
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-  constructor() {}
+
+  selectedPath = "";
+
+  constructor(private router: Router) {
+    this.router.events.subscribe((e: RouterEvent) => {
+      this.selectedPath = e.url;
+    })
+  }
+
 }
