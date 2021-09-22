@@ -10,12 +10,24 @@ const routes: Routes = [
         loadChildren: () => import('./characters/characters.module').then(m => m.CharactersPageModule)
       },
       {
+        path: 'character/:id',
+        loadChildren: () => import('./character/character.module').then(m => m.CharacterPageModule)
+      },
+      {
         path: 'locations/:page',
         loadChildren: () => import('./locations/locations.module').then(m => m.LocationsPageModule)
       },
       {
+        path: 'location/:id',
+        loadChildren: () => import('./location/location.module').then(m => m.LocationPageModule)
+      },
+      {
         path: 'episodes/:page',
         loadChildren: () => import('./episodes/episodes.module').then(m => m.EpisodesPageModule)
+      },
+      {
+        path: 'episode/:id',
+        loadChildren: () => import('./episode/episode.module').then(m => m.EpisodePageModule)
       },
       {
         path: '',

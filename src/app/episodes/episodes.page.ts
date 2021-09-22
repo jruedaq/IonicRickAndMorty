@@ -20,7 +20,7 @@ export class EpisodesPage implements OnInit {
 
   ngOnInit() {
     this.actualPage = parseInt(this.activatedRoute.snapshot.paramMap.get('page'));
-    this.api.getEpisodes().subscribe(r => {
+    this.api.getEpisodes(this.actualPage).subscribe(r => {
       this.totalPages = r.info.pages;
       this.n = r.info.count;
       r.results.forEach(e => {

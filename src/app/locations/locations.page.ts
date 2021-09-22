@@ -20,7 +20,7 @@ export class LocationsPage implements OnInit {
 
   ngOnInit() {
     this.actualPage = parseInt(this.activatedRoute.snapshot.paramMap.get('page'));
-    this.api.getLocations().subscribe(r => {
+    this.api.getLocations(this.actualPage).subscribe(r => {
       this.totalPages = r.info.pages;
       this.n = r.info.count;
       r.results.forEach(e => {
