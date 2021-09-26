@@ -14,7 +14,7 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
+  <div id="container" *ngIf="elements.length > 0">
     <ion-text><h3>{{n}} characters in total</h3></ion-text>
     <app-pager
       [totalPages]="totalPages"
@@ -22,14 +22,10 @@
       sourceUrl="characters"
     ></app-pager>
 
-    <div *ngIf="elements.length > 0">
-      <app-character-card
-        *ngFor="let x of elements"
-        [character]="x"
-      ></app-character-card>
-    </div>
-
-    <app-loading-component *ngIf="elements.length === 0"></app-loading-component>
+    <app-character-card
+      *ngFor="let x of elements"
+      [character]="x"
+    ></app-character-card>
 
     <app-pager
       [totalPages]="totalPages"
@@ -37,4 +33,6 @@
       sourceUrl="characters"
     ></app-pager>
   </div>
+
+  <app-loading-component *ngIf="elements.length === 0"></app-loading-component>
 </ion-content>

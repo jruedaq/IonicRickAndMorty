@@ -1,16 +1,19 @@
 <app-loading-component *ngIf="episode === null"></app-loading-component>
+
 <div class="div-content" *ngIf="episode !== null">
   <ion-header>
     <ion-toolbar>
-      <ion-title>{{episode.name}} {{episode.episode}}</ion-title>
+      <ion-title>{{episode.episode}} {{episode.name}}</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <ion-content>
+    <ion-title>{{episode.name}}</ion-title>
+
     <ion-text>Air date on {{episode.air_date}}</ion-text>
 
     <ion-text>
-      <h2>Characters o this episode</h2>
+      <h2>Characters on this episode</h2>
     </ion-text>
     <ion-text *ngFor="let x of episode.characters">
       {{x}}

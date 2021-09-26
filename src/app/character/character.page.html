@@ -1,9 +1,22 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>character</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-loading-component *ngIf="character === null"></app-loading-component>
 
-<ion-content>
+<div class="div-content" *ngIf="character !== null">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>{{character.name}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
-</ion-content>
+  <ion-content>
+    <ion-img [src]="character.image"></ion-img>
+
+    <ion-title>{{character.name}}</ion-title>
+
+    <ion-text>
+      <h2>Episodes where it appears</h2>
+    </ion-text>
+    <ion-text *ngFor="let x of character.episodes">
+      {{cleanUrl(x)}}
+    </ion-text>
+  </ion-content>
+</div>

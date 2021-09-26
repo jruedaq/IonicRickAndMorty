@@ -7,7 +7,7 @@ import {Observable} from 'rxjs';
 })
 export class ApiService {
 
-  private baseUrl = 'https://rickandmortyapi.com/api';
+  private static baseUrl = 'https://rickandmortyapi.com/api';
 
   constructor(private http: HttpClient) {
   }
@@ -37,6 +37,11 @@ export class ApiService {
   }
 
   private httpGet(path: string): Observable<any> {
-    return this.http.get(this.baseUrl + path);
+    return this.http.get(ApiService.baseUrl + path);
+  }
+
+  public static cleanUrl(path: string): string {
+    let regex = new RegExp(window.location.origin + "/(characters|locations|episodes)/");
+    return path.replace(regex, "");
   }
 }

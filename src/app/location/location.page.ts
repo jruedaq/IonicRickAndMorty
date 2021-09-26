@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Location} from "../objects/location";
+import {ActivatedRoute} from "@angular/router";
+import {ApiService} from "../rest/api.service";
 
 @Component({
   selector: 'app-location',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LocationPage implements OnInit {
 
-  constructor() { }
+  location: Location = null;
+
+  constructor(private activatedRoute: ActivatedRoute, private api: ApiService) {
+  }
 
   ngOnInit() {
+    const id = parseInt(this.activatedRoute.snapshot.paramMap.get('id'));
+
+    this.api.getLocation(id).subscribe(r => {
+      this.location = new Location(r)
+    })
   }
 
 }

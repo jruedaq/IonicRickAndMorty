@@ -1,9 +1,22 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>location</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-loading-component *ngIf="location === null"></app-loading-component>
 
-<ion-content>
+<div class="div-content" *ngIf="location !== null">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>{{location.name}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
-</ion-content>
+  <ion-content>
+    <ion-title>{{location.name}}</ion-title>
+
+    <ion-text>Dimension {{location.dimension}} of type {{location.type}}</ion-text>
+
+    <ion-text>
+      <h2>Characters o this episode</h2>
+    </ion-text>
+    <ion-text *ngFor="let x of location.residents">
+      {{x}}
+    </ion-text>
+  </ion-content>
+</div>
