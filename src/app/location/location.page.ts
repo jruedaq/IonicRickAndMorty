@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Location} from "../objects/location";
 import {ActivatedRoute} from "@angular/router";
 import {ApiService} from "../rest/api.service";
+import {Episode} from "../objects/episode";
 
 @Component({
   selector: 'app-location',

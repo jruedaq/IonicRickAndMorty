@@ -15,8 +15,10 @@
     <ion-text>
       <h2>Characters on this episode</h2>
     </ion-text>
-    <ion-text *ngFor="let x of episode.characters">
-      {{x}}
-    </ion-text>
+
+    <app-character-card
+      *ngFor="let x of characters"
+      [character]="x"
+    ></app-character-card>
   </ion-content>
 </div>

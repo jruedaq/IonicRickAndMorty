@@ -8,6 +8,7 @@ import { LocationPageRoutingModule } from './location-routing.module';
 
 import { LocationPage } from './location.page';
 import {LoadingComponentComponent} from "../loading-component/loading-component.component";
+import {EpisodeCardComponent} from "../episode-card/episode-card.component";
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import {LoadingComponentComponent} from "../loading-component/loading-component.
     IonicModule,
     LocationPageRoutingModule
   ],
-  declarations: [LocationPage, LoadingComponentComponent]
+  declarations: [LocationPage, LoadingComponentComponent, EpisodeCardComponent]
 })
 export class LocationPageModule {}

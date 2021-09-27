@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {ApiService} from "../rest/api.service";
 import {Episode} from "../objects/episode";
+import {Character} from "../objects/character";
 
 @Component({
   selector: 'app-episode',
@@ -11,6 +12,7 @@ import {Episode} from "../objects/episode";
 export class EpisodePage implements OnInit {
 
   episode: Episode = null;
+  characters: Character[] = [];
 
   constructor(private activatedRoute: ActivatedRoute, private api: ApiService) {
   }
@@ -20,7 +22,16 @@ export class EpisodePage implements OnInit {
 
     this.api.getEpisode(id).subscribe(r => {
       this.episode = new Episode(r);
+      this.getCharacters();
     });
   }
 
+  getCharacters() {
+    for (const character of this.episode.characters) {
+      const characterId = parseInt(this.api.cleanUrl(character));
+      this.api.getCharacter(characterId).subscribe(r => {
+        this.characters.push(new Character(r));
+      })
+    }
+  }
 }

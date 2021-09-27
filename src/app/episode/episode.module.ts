@@ -8,6 +8,7 @@ import { EpisodePageRoutingModule } from './episode-routing.module';
 
 import { EpisodePage } from './episode.page';
 import {LoadingComponentComponent} from "../loading-component/loading-component.component";
+import {CharacterCardComponent} from "../character-card/character-card.component";
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import {LoadingComponentComponent} from "../loading-component/loading-component.
     IonicModule,
     EpisodePageRoutingModule
   ],
-  declarations: [EpisodePage, LoadingComponentComponent]
+  declarations: [EpisodePage, LoadingComponentComponent, CharacterCardComponent]
 })
 export class EpisodePageModule {}

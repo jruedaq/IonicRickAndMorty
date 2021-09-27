@@ -11,7 +11,7 @@ import {ApiService} from "../rest/api.service";
 })
 export class EpisodesPage implements OnInit {
 
-  elements: Episode[] = [];
+  episodes: Episode[] = [];
   actualPage: number;
   totalPages: number;
   n: number;
@@ -24,7 +24,7 @@ export class EpisodesPage implements OnInit {
       this.totalPages = r.info.pages;
       this.n = r.info.count;
       r.results.forEach(e => {
-        this.elements.push(new Episode(e))
+        this.episodes.push(new Episode(e))
       })
     })
   }

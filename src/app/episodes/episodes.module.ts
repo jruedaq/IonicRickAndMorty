@@ -12,12 +12,15 @@ import {LoadingComponentComponent} from "../loading-component/loading-component.
 import {PagerComponent} from "../pager/pager.component";
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    EpisodesPageRoutingModule
-  ],
-  declarations: [EpisodesPage, EpisodeCardComponent, LoadingComponentComponent, PagerComponent]
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        EpisodesPageRoutingModule
+    ],
+    exports: [
+        EpisodeCardComponent
+    ],
+    declarations: [EpisodesPage, EpisodeCardComponent, LoadingComponentComponent, PagerComponent]
 })
 export class EpisodesPageModule {}

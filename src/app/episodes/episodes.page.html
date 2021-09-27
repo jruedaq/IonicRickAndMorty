@@ -14,7 +14,7 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container" *ngIf="elements.length > 0">
+  <div id="container" *ngIf="episodes.length > 0">
     <ion-text><h3>{{n}} episodes in total</h3></ion-text>
     <app-pager
       [totalPages]="totalPages"
@@ -23,7 +23,7 @@
     ></app-pager>
 
     <app-episode-card
-      *ngFor="let x of elements"
+      *ngFor="let x of episodes"
       [episode]="x"
     ></app-episode-card>
 
@@ -34,5 +34,5 @@
     ></app-pager>
   </div>
 
-  <app-loading-component *ngIf="elements.length === 0"></app-loading-component>
+  <app-loading-component *ngIf="episodes.length === 0"></app-loading-component>
 </ion-content>
