@@ -3,6 +3,7 @@ import {Character} from "../objects/character";
 import {ActivatedRoute} from "@angular/router";
 import {ApiService} from "../rest/api.service";
 import {Episode} from "../objects/episode";
+import {Location} from "../objects/location";
 
 @Component({
   selector: 'app-character',
@@ -13,6 +14,8 @@ export class CharacterPage implements OnInit {
 
   character: Character = null;
   episodes: Episode[] = [];
+  originLocation: Location = null;
+  knownLocation: Location = null;
 
   constructor(private activatedRoute: ActivatedRoute, private api: ApiService) {
   }
@@ -22,13 +25,44 @@ export class CharacterPage implements OnInit {
 
     this.api.getCharacter(id).subscribe(r => {
       this.character = new Character(r);
-      this.getLocations();
+      this.getOriginLocation();
+      this.getKnownLocation();
       this.getEpisodes();
     });
   }
 
-  getLocations(): void {
+  getOriginLocation(): void {
+    const locationId = parseInt(this.api.cleanUrl(this.character.origin['url']));
+    if (!isNaN(locationId)) {
+      this.api.getLocation(locationId).subscribe(r => {
+        this.originLocation = new Location(r);
+      });
+    } else {
+      this.originLocation = new Location({
+        id: 0,
+        name: "Unknown",
+        type: "Unknown",
+        dimension: "Unknown",
+        residents: "Unknown"
+      })
+    }
+  }
 
+  getKnownLocation(): void {
+    const locationId = parseInt(this.api.cleanUrl(this.character.location['url']));
+    if (!isNaN(locationId)) {
+      this.api.getLocation(locationId).subscribe(r => {
+        this.knownLocation = new Location(r);
+      });
+    } else {
+      this.knownLocation = new Location({
+        id: 0,
+        name: "Unknown",
+        type: "Unknown",
+        dimension: "Unknown",
+        residents: "Unknown"
+      })
+    }
   }
 
   getEpisodes(): void {

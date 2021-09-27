@@ -20,7 +20,25 @@
 
   <ion-title>{{character.name}}</ion-title>
 
-  <ion-text>
+  <ion-text *ngIf="originLocation">
+    <h2>Origin location</h2>
+  </ion-text>
+
+  <app-location-card
+    *ngIf="originLocation"
+    [location]="originLocation"
+  ></app-location-card>
+
+  <ion-text *ngIf="knownLocation">
+    <h2>Known location</h2>
+  </ion-text>
+
+  <app-location-card
+    *ngIf="knownLocation"
+    [location]="knownLocation"
+  ></app-location-card>
+
+  <ion-text *ngIf="episodes">
     <h2>Episodes where it appears</h2>
   </ion-text>
 
