@@ -1,24 +1,31 @@
 <app-loading-component *ngIf="episode === null"></app-loading-component>
 
-<div class="div-content" *ngIf="episode !== null">
-  <ion-header>
+<ion-header [translucent]="true" *ngIf="episode !== null">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{episode.episode}} {{episode.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" *ngIf="episode !== null">
+  <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title>{{episode.episode}} {{episode.name}}</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <ion-content>
-    <ion-title>{{episode.name}}</ion-title>
+  <ion-title>{{episode.name}}</ion-title>
 
-    <ion-text>Air date on {{episode.air_date}}</ion-text>
+  <ion-text>Air date on {{episode.air_date}}</ion-text>
 
-    <ion-text>
-      <h2>Characters on this episode</h2>
-    </ion-text>
+  <ion-text>
+    <h2>Characters on this episode</h2>
+  </ion-text>
 
-    <app-character-card
-      *ngFor="let x of characters"
-      [character]="x"
-    ></app-character-card>
-  </ion-content>
-</div>
+  <app-character-card
+    *ngFor="let x of characters"
+    [character]="x"
+  ></app-character-card>
+</ion-content>

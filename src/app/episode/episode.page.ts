@@ -26,7 +26,7 @@ export class EpisodePage implements OnInit {
     });
   }
 
-  getCharacters() {
+  getCharacters(): void {
     for (const character of this.episode.characters) {
       const characterId = parseInt(this.api.cleanUrl(character));
       this.api.getCharacter(characterId).subscribe(r => {
