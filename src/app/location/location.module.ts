@@ -9,6 +9,7 @@ import { LocationPageRoutingModule } from './location-routing.module';
 import { LocationPage } from './location.page';
 import {LoadingComponentComponent} from "../loading-component/loading-component.component";
 import {EpisodeCardComponent} from "../episode-card/episode-card.component";
+import {CharacterCardComponent} from "../character-card/character-card.component";
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import {EpisodeCardComponent} from "../episode-card/episode-card.component";
     IonicModule,
     LocationPageRoutingModule
   ],
-  declarations: [LocationPage, LoadingComponentComponent, EpisodeCardComponent]
+  declarations: [LocationPage, LoadingComponentComponent, EpisodeCardComponent, CharacterCardComponent]
 })
 export class LocationPageModule {}

@@ -23,4 +23,9 @@
   <ion-text>
     <h2>Characters o this episode</h2>
   </ion-text>
+
+  <app-character-card
+    *ngFor="let x of characters"
+    [character]="x"
+  ></app-character-card>
 </ion-content>
