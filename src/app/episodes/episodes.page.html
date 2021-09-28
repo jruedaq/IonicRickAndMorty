@@ -14,20 +14,23 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container" *ngIf="episodes.length > 0">
-    <ion-text><h3>{{n}} episodes in total</h3></ion-text>
-    <app-pager
-      [totalPages]="totalPages"
-      [actualPage]="actualPage"
-      sourceUrl="episodes"
+  <div id="container" class="grid-content" *ngIf="episodes.length > 0">
+    <ion-text class="grid-content__character">
+      <h3>{{n}} episodes in total</h3>
+    </ion-text>
+    <app-pager class="counter__loc-head"
+               [totalPages]="totalPages"
+               [actualPage]="actualPage"
+               sourceUrl="episodes"
     ></app-pager>
+    <div class="grid-content__data">
+      <app-episode-card
+        *ngFor="let x of episodes"
+        [episode]="x"
+      ></app-episode-card>
+    </div>
 
-    <app-episode-card
-      *ngFor="let x of episodes"
-      [episode]="x"
-    ></app-episode-card>
-
-    <app-pager
+    <app-pager class="counter__loc-end"
       [totalPages]="totalPages"
       [actualPage]="actualPage"
       sourceUrl="episodes"

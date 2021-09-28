@@ -1,0 +1,34 @@
+@media screen and (min-width: 768px) {
+  .grid-content {
+    display: grid;
+    grid-template-areas: 'total' 'count-head' 'data' 'count-end';
+    gap: 20px;
+    align-items: center;
+  }
+
+  .grid-content__character {
+    grid-area: total;
+    padding: 0 20px;
+  }
+
+  .counter__loc-head {
+    grid-area: count-head;
+  }
+
+  .counter__loc-end {
+    grid-area: count-end;
+    padding: 0 0 20px;
+  }
+
+  .grid-content__data {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .grid-content__data {
+    grid-template-columns: repeat(3,1fr);
+  }
+}

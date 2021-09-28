@@ -14,23 +14,27 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container" *ngIf="elements.length > 0">
-    <ion-text><h3>{{n}} characters in total</h3></ion-text>
-    <app-pager
-      [totalPages]="totalPages"
-      [actualPage]="actualPage"
-      sourceUrl="characters"
+  <div class="grid-content" id="container" *ngIf="elements.length > 0">
+    <ion-text class="grid-content__character">
+      <h3>{{n}} characters in total</h3>
+    </ion-text>
+    <app-pager class="counter__loc-head"
+               [totalPages]="totalPages"
+               [actualPage]="actualPage"
+               sourceUrl="characters"
     ></app-pager>
 
-    <app-character-card
-      *ngFor="let x of elements"
-      [character]="x"
-    ></app-character-card>
+    <div class="grid-content__data">
+      <app-character-card
+        *ngFor="let x of elements"
+        [character]="x"
+      ></app-character-card>
+    </div>
 
-    <app-pager
-      [totalPages]="totalPages"
-      [actualPage]="actualPage"
-      sourceUrl="characters"
+    <app-pager class="counter__loc-end"
+               [totalPages]="totalPages"
+               [actualPage]="actualPage"
+               sourceUrl="characters"
     ></app-pager>
   </div>
 

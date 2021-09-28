@@ -1,0 +1,23 @@
+.counter-page {
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+.counter-total {
+  padding: 0 20px;
+}
+
+
+@media screen and (min-width: 768px) {
+  .counter-page {
+    width: 80%;
+
+  }
+}

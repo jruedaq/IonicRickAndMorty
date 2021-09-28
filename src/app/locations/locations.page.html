@@ -14,20 +14,24 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container" *ngIf="elements.length > 0">
-    <ion-text><h3>{{n}} locations in total</h3></ion-text>
-    <app-pager
+  <div id="container" class="grid-content" *ngIf="elements.length > 0">
+    <ion-text class="grid-content__character">
+      <h3>{{n}} locations in total</h3>
+    </ion-text>
+    <app-pager class="counter__loc-head"
       [totalPages]="totalPages"
       [actualPage]="actualPage"
       sourceUrl="locations"
     ></app-pager>
 
-    <app-location-card
-      *ngFor="let x of elements"
-      [location]="x"
-    ></app-location-card>
+    <div class="grid-content__data">
+      <app-location-card
+        *ngFor="let x of elements"
+        [location]="x"
+      ></app-location-card>
+    </div>
 
-    <app-pager
+    <app-pager  class="counter__loc-end"
       [totalPages]="totalPages"
       [actualPage]="actualPage"
       sourceUrl="locations"
